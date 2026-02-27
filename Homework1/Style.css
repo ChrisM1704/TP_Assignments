@@ -3,7 +3,6 @@
   h1 {color: beige;
 font-family: inherit;
 font-weight: bold;
-
 }
 label{
     font-weight: bold;
@@ -30,4 +29,11 @@ input[type="range"]{
     accent-color: black;
     font-family: inherit;
     
+}
+#footer{
+    margin-top: 600px;
+}
+#Thankyou{
+    font-size: 30px;
+    color: beige;
 }
