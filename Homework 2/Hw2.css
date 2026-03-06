@@ -1,0 +1,39 @@
+ body{background-color: rgb(53, 141, 193);
+}
+  h1 {color: beige;
+font-family: inherit;
+font-weight: bold;
+}
+label{
+    font-weight: bold;
+    font-family: inherit;
+}
+Input{
+    font-family: inherit;
+    background-color: beige;
+    border-width: 2px;
+    border-color: black;
+}
+textarea{
+    font-family: inherit;
+    background-color: beige;
+    border-width: 2px;
+    border-color: black;
+}
+select {
+    background-color: beige;
+    border-width: 2px;
+    border-color: black;
+}
+input[type="range"]{
+    accent-color: black;
+    font-family: inherit;
+    
+}
+#footer{
+    margin-top: 600px;
+}
+#Thankyou{
+    font-size: 30px;
+    color: beige;
+}
