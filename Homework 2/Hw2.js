@@ -23,7 +23,41 @@ function validateFname(){
         return false;
       }
      else {
-        document.getElementById("fname-error").innerHTML = "";
+       
+        return true;
+     }
+      
+
+      }
+}
+
+
+function validateLname(){
+    lname = document.getElementById("lname").value.trim();
+    var namePattern = /^[a-zA-Z'-]+$/; 
+    // check if Last name field is empty
+    if (lname == ""){
+        document.getElementById("lname-error").innerHTML = "Last name field cannot be empty"
+         return false;
+    }
+
+      else if (fname != ""){
+    if (!lname.match(namePattern)) { // checks if Last name matches the pattern
+        document.getElementById("lname-error").innerHTML = "Letters, apostrophes, and dashes only.";
+         return false;
+    }
+
+      else if (lname.length > 2){ // check if Last doesnt have more than 2 characters
+        document.getElementById("lname-error").innerHTML = "Last name cannot be less than 2 characters.";
+        return false;
+      }
+
+      else if (lname.length > 30){ // check if last doesnt have more than 30 characters
+        document.getElementById("lname-error").innerHTML ="Last name cannot be more than 30 characters.";
+        return false;
+      }
+     else {
+        document.getElementById("lname-error").innerHTML = "";
         return true;
      }
       

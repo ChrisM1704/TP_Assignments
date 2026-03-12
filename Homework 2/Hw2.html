@@ -45,10 +45,12 @@ Decription: This will show a medical page.
         <label for="fname">First Name / M.I / Last Name:</label> 
         </td>
         <td>
-      <input type="text" minlength="0" maxlength="30" title= "Letters, dashes, and apostrophes only" pattern= " [a-zA-Z']{1-30}" onblur= "validateFname()"id="fname" name="fname" required>
+      <input type="text" minlength="1" maxlength="30" title= "Letters, dashes, and apostrophes only" pattern= " [a-zA-Z']{1-30}" onblur= "validateFname()"id="fname" name="fname" required>
       <span class ="error" id = "fname-error"></span>
-      <input type="text" maxlength="1" id="Mname" name="Mname">
-      <input type="text" maxlength="30" id="lname" name="lname" required>
+      <input type="text" minlength="0" maxlength="1" title="Letters only" pattern= " [a-zA-Z']{0-1}" onblur="validateMname()" id="Mname" name="Mname">
+      <span class ="error" id = "mname-error"></span>
+      <input type="text" minlength="1" maxlength="30" title= "Letters, dashes, and apostrophes only" pattern= " [a-zA-Z']{1-30}" onblur= "validateLname()"id="lname" name="lname" required>
+      <span class ="error" id = "lname-error"></span>
         </td>
     </tr>
     <tr>   
