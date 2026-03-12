@@ -14,9 +14,10 @@ Decription: This will show a medical page.
 -->
 <html lang="en">
   <head>
-    <link rel = "stylesheet" href="Hw2.html">
+    <link rel = "stylesheet" href="Homework1.html">
      <link rel = "stylesheet" href="Hw2.css">
      <link rel = "stylesheet" href="logo.png">
+     <script src = "Hw2.js"></script>
     <!-- this how i link my css file to my html-->
      <title> new patient registration Houston National clinic </title> 
   </head>
@@ -37,14 +38,15 @@ Decription: This will show a medical page.
       <script> document.getElementById("date").innerHTML=new Date().toLocaleDateString();</script>
 
 
-  <form action ="Hw2ThankYou.html">
+  <form action ="Thank You.html">
   <table>
     <tr>
         <td>
         <label for="fname">First Name / M.I / Last Name:</label> 
         </td>
         <td>
-      <input type="text" maxlength="30" id="fname" name="fname" required>
+      <input type="text" minlength="0" maxlength="30" title= "Letters, dashes, and apostrophes only" pattern= " [a-zA-Z']{1-30}" onblur= "validateFname()"id="fname" name="fname" required>
+      <span class ="error" id = "fname-error"></span>
       <input type="text" maxlength="1" id="Mname" name="Mname">
       <input type="text" maxlength="30" id="lname" name="lname" required>
         </td>
@@ -294,5 +296,4 @@ Decription: This will show a medical page.
      
 </body>
 </html>
-
 
