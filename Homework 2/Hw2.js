@@ -23,13 +23,29 @@ function validateFname(){
         return false;
       }
      else {
-       
+        document.getElementById("fname-error").innerHTML = "";
         return true;
      }
       
 
       }
 }
+function validateMname(){
+ 
+    let Mname = document.getElementById("Mname").value;
+    const namePattern = /^[A-Z]$/;
+    Mname=Mname.toUpperCase
+    document.getElementById("Mname").value = Mname;
+    if (!Mname.match(namePattern)){
+        document.getElementById("Mname-error").innerHTML= "Middle initial must be single uppercase letter.";
+    return false;
+    }
+    else{
+        document.getElementById("Mname-error").innerHTMl = "";
+        return true;
+    }
+  }
+
 
 
 function validateLname(){
@@ -64,3 +80,51 @@ function validateLname(){
 
       }
 }
+// Javascript code for validating Date of Birth
+function validateDOB(){
+ DOB = document.getElementById("DOB");
+  let date = new Date(DOB.value);
+  let maxDate = new Date().setFullYear(new Date().getFullYear() - 120);
+  if (date > new Date()){
+    document.getElementById("DOB-error").innerHTML = "Date cannot be in the future.";
+    DOB.value="";
+    return false;
+  }
+  else if (date < new Date(maxDate)){
+    document.getElementById("DOB-error").innerHTML = "Date cannot be more than 120 years ago.";
+    DOB.value="";
+    return false;
+  }
+  else {
+    document.getElementById("DOB-error").innerHTML = "";
+    return true;
+  }
+}
+ //Js code for social
+ function validateSocial(){
+  const social = document.getElementById("social").value;
+  const ssnR = /^[0-9]{3}-?[0-9]{2}-?[0-9]{4}$/;
+  if (!ssnR.test(social)){
+    document.getElementById("social-error").innerHTML ="Please enter a valid Social Security Number.";
+    return false;
+  }
+  else {
+    document.getElementById("social-error").innerHTML = "";
+    return true;
+  }
+ }
+ 
+ //Js code for validating Address 1
+ function validateAddress1(){
+  var ad1 = document.getElementById("address1").value
+  console.log(ad1);
+  console.log(ad1.length);
+  if (ad1.length < 2){
+    document.getElementById("address1-error").innerHTML ="Please enter your address on the address line.";
+    return false;
+  }
+  else {
+    document.getElementById("address1-error").innerHTML = "";
+    return true;
+  }
+ }

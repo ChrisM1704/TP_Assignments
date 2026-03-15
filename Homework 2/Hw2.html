@@ -48,7 +48,7 @@ Decription: This will show a medical page.
       <input type="text" minlength="1" maxlength="30" title= "Letters, dashes, and apostrophes only" pattern= " [a-zA-Z']{1-30}" onblur= "validateFname()"id="fname" name="fname" required>
       <span class ="error" id = "fname-error"></span>
       <input type="text" minlength="0" maxlength="1" title="Letters only" pattern= " [a-zA-Z']{0-1}" onblur="validateMname()" id="Mname" name="Mname">
-      <span class ="error" id = "mname-error"></span>
+      <span class ="error" id = "Mname-error"></span>
       <input type="text" minlength="1" maxlength="30" title= "Letters, dashes, and apostrophes only" pattern= " [a-zA-Z']{1-30}" onblur= "validateLname()"id="lname" name="lname" required>
       <span class ="error" id = "lname-error"></span>
         </td>
@@ -60,7 +60,8 @@ Decription: This will show a medical page.
       <label for ='DOB'> Date of Birth: </label>
         </td>
         <td>
-        <input type = "date" maxlength="10"id = 'DOB'placeholder = "MM/DD/YYYY" pattern="\d{2}/d{2}/\d{4}" title = 'Enterdate as MM/DD/YYYY'required>
+        <input type = "date" maxlength="10"id = 'DOB'placeholder = "MM/DD/YYYY" pattern="\d{2}/d{2}/\d{4}" onblur="validateDOB()" title = 'Enterdate as MM/DD/YYYY'required></input>
+        <span class="error" id ="DOB-error"></span>
         </td>
     </tr>
     <tr>
@@ -68,7 +69,8 @@ Decription: This will show a medical page.
       <label for ="social">Social Security:</label>
         </td>
         <td>
-      <input type ="text" maxlength="11" id="social" name = "social" required placeholder="SSN" required>
+      <input type ="text" maxlength="11" id="social" name = "social" required placeholder="SSN" title="Numbers Only" onblur="validateSocial()" required>
+      <span class="error" id="social-error"></span>
     </tr>
     <tr>
         </td>
@@ -87,14 +89,15 @@ Decription: This will show a medical page.
         <label for="address" > Address 1:</label>
         </td>
         <td>
-      <input type="text" maxlength="30" id="address" name="address" required>
+      <input type="text" maxlength="30" id="address1" name="address" onblur="validateAddress1()" title="Letters, dashes, and apostrophes only." required>
+      <span class ="error" id ="address1-error"></span>
         </td>
     <tr>
         <td>
         <label for="address" > Address 2:</label>
         </td>
         <td>
-      <input type="text" maxlength="30" id="address" name="address" >
+      <input type="text" maxlength="30" id="address2" title="" name="address" >
         </td>
     </tr>
     <tr>
