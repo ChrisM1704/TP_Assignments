@@ -48,6 +48,11 @@ function validateMname(){
 
 
 
+
+    
+
+    
+
 function validateLname(){
     lname = document.getElementById("lname").value.trim();
     var namePattern = /^[a-zA-Z'-]+$/; 
@@ -127,4 +132,35 @@ function validateDOB(){
     document.getElementById("address1-error").innerHTML = "";
     return true;
   }
+ }
+ //Js code for city
+ function validateCity(){
+  city = document.getElementById("city").value.trim();
+  if (!city){
+    document.getElementById("city-error").innerHTML = "City cannot be left blank";
+    return false;
+  }
+  else{
+    document.getElementById("city-error").innerHTML = "";
+    return true;
+  }
+ }
+ 
+ // Js code for zip code
+ function validateZip(){
+  const zipInput = document.getElementById("zip");
+  let zip = zipInput.value.replace(/[^\d-]/g,"");
+  if (!zip) {
+    document.getElementById("zip-error").innerHTML = "Zip code cannot be left blank";
+    return false;
+  }
+  if (zip.length > 5) {
+    zip = zip.slice(0,5) + "-" + zip.slice(5,9);
+    }
+    else {
+      zip = zip.slice(0,5);
+    }
+    zipInput.value = zip;
+    document.getElementById("zip-error").innerHTML = "";
+    return true;
  }

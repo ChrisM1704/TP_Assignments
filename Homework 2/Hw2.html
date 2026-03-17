@@ -107,7 +107,8 @@ Decription: This will show a medical page.
         </td>
         <td>
     
-      <input type="text" maxlength="30" id="city" name="city" required >
+      <input type="text" maxlength="30" id="city" name="city" title="Please enter your city" onblur="validateCity()" required >
+      <span class="error" id="city-error"></span>
        
         
 <!--state list -->
@@ -167,7 +168,8 @@ Decription: This will show a medical page.
       <option value="WY">Wyoming</option>
   </select>
      
-      <input type ="text" maxlength="10" id="zip" name = "zip" required>
+      <input type ="text" maxlength="10" id="zip" name = "zip" pattern="[0-9]{5}" title="Numbers only" onblur=" validateZip()" required>
+      <span class="error" id="zip-error"></span>
         </td>
   </tr>
   <tr>
@@ -175,7 +177,8 @@ Decription: This will show a medical page.
         <label for="email"> Email Address:</label>
         </td>
         <td>
-      <Input type="text"  id= "email" name= "email" required placeholder="Email Address" maxlength="50" required>
+      <Input type="text"  id= "email" name= "email" required placeholder="Email Address" maxlength="50" title="Please enter your email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,20}$ " onblur="validateEmmail()" required>
+        <span class="error" id="email-error"></span>
         </td>
   </tr>
   <tr>
@@ -260,7 +263,8 @@ Decription: This will show a medical page.
   
         </td>
         <td>
-      <input type="text" id="User" name="User" maxlength="20" required>
+      <input type="text" minlength="5" maxlength="20" id="User" name="User" maxlength="20" title="Username must contain at least 5 characters, and cannot start with a number" onblur="validateUser()" required>
+      <span class="error" id="User-error"></span>
         </td>
   </tr>
   
@@ -269,7 +273,8 @@ Decription: This will show a medical page.
         <label for="Password1">Password: </label>
         </td>
         <td>
-      <input type= "password" id="Password1" name="Password1" maxlength="30" required>
+      <input type= "password" id="Password1" name="Password1" maxlength="30" title="Password must contain at least 10 characters, one uppercase letter, one number, one lowercase letter, and one special character" onblur="validatePassword1()" oninput="validatePassword1()" onfocus="validatePassword1()" required>
+      <span class="error" id="Password1-error"></span>
         </td>
   <tr>
   <tr>
@@ -277,7 +282,8 @@ Decription: This will show a medical page.
         <label for="ConfirmationPassword"> Confirm Password: </label>
         </td>
         <td>
-      <input type="Password" id="ConfirmationPassword" name="ConfirmationPassword" maxlength="30" required>
+      <input type="Password" id="ConfirmationPassword" name="ConfirmationPassword" maxlength="30" title="Please re-emter your password" onblur="confirmConfirmationPassword()" oninput="confirmConfirmationPassword()" onfocus="confirmConfirmationPassword()" required>
+      <span class="error" id="ConfirmationPassword-error"></span>
         </td>
   </tr>
   <tr>
@@ -293,9 +299,12 @@ Decription: This will show a medical page.
   <input type="reset" value ="Reset">
         </td>
         <td>
+  <input type="button" name="review" id="review" value="Review" onclick="reviewInput()">
   <input type="submit" value="Submit">
+  
         </td>
   </tr>
+    
   </table>
 </form>
      
