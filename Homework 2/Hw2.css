@@ -37,3 +37,50 @@ input[type="range"]{
     font-size: 30px;
     color: beige;
 }
+.error{
+    color: red;
+    font-size: 15px;
+    font-family: inherit;
+    font-weight: bold;
+    text-shadow: 
+    -1px -1px 0 black,
+     1px -1px 0 black,
+    -1px  1px 0 black,
+     1px  1px 0 black;
+}
+.pass-message{
+    text-align: right;
+    font-family: inherit;
+    font-weight: bold;
+    position:relative;
+    left: -80px;
+    background: transparent;
+    padding: 10px;
+    border-spacing: 2px;
+    border-radius: 20px;
+    color: red;
+    text-shadow: 
+    -1px -1px 0 black,
+     1px -1px 0 black,
+    -1px  1px 0 black,
+     1px  1px 0 black;
+}
+#review{
+    margin-top: 5px;
+}
+table.output,
+tr.output,
+td.output{
+    width:10px;
+    background-color: beige;
+    padding: 50px;
+    border-spacing: 20px;
+    border-radius: 10px;
+    color:black
+}
+td.outputdata{
+    width: 500px;
+    background-color: rgb(53, 141, 193);
+    padding: 50px;
+    border-spacing: 2px;
+}

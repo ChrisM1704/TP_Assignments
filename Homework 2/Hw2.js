@@ -13,7 +13,7 @@ function validateFname(){
          return false;
     }
 
-      else if (fname.length > 2){ // check if first doesnt have more than 2 characters
+      else if (fname.length < 2){ // check if first doesnt have more than 2 characters
         document.getElementById("fname-error").innerHTML = "First name cannot be less than 2 characters.";
         return false;
       }
@@ -34,13 +34,13 @@ function validateMname(){
  
     let Mname = document.getElementById("Mname").value;
     const namePattern = /^[A-Z]$/;
-    Mname=Mname.toUpperCase
+    Mname = Mname.toUpperCase();
     document.getElementById("Mname").value = Mname;
     if (!Mname.match(namePattern)){
         document.getElementById("Mname-error").innerHTML= "Middle initial must be single uppercase letter.";
     return false;
     }
-    else{
+    else {
         document.getElementById("Mname-error").innerHTMl = "";
         return true;
     }
@@ -68,7 +68,7 @@ function validateLname(){
          return false;
     }
 
-      else if (lname.length > 2){ // check if Last doesnt have more than 2 characters
+      else if (lname.length < 2){ // check if Last doesnt have more than 2 characters
         document.getElementById("lname-error").innerHTML = "Last name cannot be less than 2 characters.";
         return false;
       }
@@ -119,6 +119,8 @@ function validateDOB(){
   }
  }
  
+ 
+
  //Js code for validating Address 1
  function validateAddress1(){
   var ad1 = document.getElementById("address1").value
@@ -164,3 +166,155 @@ function validateDOB(){
     document.getElementById("zip-error").innerHTML = "";
     return true;
  }
+
+ //Js code for email
+ function validateEmail (){
+  email = document.getElementById("email").value;
+  var emailR = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+  if (email == ""){
+    document.getElementById("email-error").innerHTML = "Email address cannot be empty";
+    return false;
+  }
+  else if (!email.match(emailR)){
+    document.getElementById("email-error").innerHTML = "Please enter a valid email address";
+    return false;
+  }
+  else {
+    document.getElementById("email-error").innerHTML = "";
+    return true;
+  }
+ }
+
+//Js code for slider
+function updateSlider(){
+  const value = document.getElementById("PainLevel").value;
+  document.getElementById("painValue").innerHTML = value;
+}
+
+ //Js code for Username validation
+ function validateUser(){
+  let username = document.getElementById("User").value;
+  username = username.toLowerCase();
+  document.getElementById("User").value = username;
+  if (username.length === 0){
+    document.getElementById("User-error").innerHTML = "Username field cannot be empty";
+    return false;
+  }
+  if(!isNaN(username.charAt(0))){
+    document.getElementById("User-error").innerHTML = "Username cannot begin with a number";
+    return false;
+    }
+    let regex = /^[a-zA-Z0-9_]+$/;
+    if(!regex.test(username)){
+      document.getElementById("User-error").innerHTMl = "Username can only contain letters, numbers, or underscores";
+      return false;
+    }
+    else if (username.length < 5 ){
+      document.getElementById("User-error").innerHTML = "Username cannot be less than 5 characters";
+      return false;
+    }
+    else if (username.length > 30){
+      document.getElementById("User-error").innerHTML = "Username cannot exceed 30 characters";
+      return false;
+    }
+    else {
+      document.getElementById("User-error").innerHTML = "";
+      return true;
+    }
+ }
+
+ // Js code for password validation
+ function validatePassword1(){
+  const Password1 = document.getElementById("Password1").value;
+  const  User = document.getElementById("User").value;
+  const errorMessage = [];
+  if(!Password1.match(/[a-z]/)){
+    errorMessage.push("Enter at least one lowercase letter");
+  }
+  if(!Password1.match(/[A-Z]/)){
+errorMessage.push("Enter at least one uppercase letter");
+  }
+  if(!Password1.match(/[0-9]/)){
+    errorMessage.push("Enter at least one number");
+  }
+  if(!Password1.match(/[!\@#\$%&*\-_\\.+\(\)]/)){
+    errorMessage.push("Enter at least one special character");
+  }
+  if(Password1 == User || Password1.includes(User)){
+    errorMessage.push("Password cannot contain username");
+  }
+  const errorContainer = document.querySelector(".pass-message");
+  errorContainer.innerHTML = errorMessage.map(msg => `<span>${msg}</span><br>`).join("");
+ }
+
+ //Js for confirmation password
+ function confirmConfirmationPassword(){
+  Password1 = document.getElementById("Password1").value;
+  confirmationPassword = document.getElementById("ConfirmationPassword").value;
+  if(confirmationPassword !== Password1){
+    document.getElementById("ConfirmationPassword-error").innerHTML = "Password does not match";
+    return false;
+  }
+  else{
+    document.getElementById("ConfirmationPassword-error").innerHTML = "";
+    return true;
+  }
+ }
+
+ //Js code for review button
+ function reviewInput(){
+   var formcontent = document.getElementById("signup");
+    var formoutput = "<table class='output'><tr><th colspan='2'>Review Your Information:</th></tr>";
+
+    for (var i = 0; i < formcontent.elements.length; i++) {
+        var el = formcontent.elements[i];
+        var datatype = el.type;
+        var name = el.name;
+        var value = el.value;
+
+        // skip elements with no name
+        if (!name) continue;
+
+        switch (datatype) {
+            case "checkbox":
+                if (el.checked) {
+                    formoutput += "<tr><td align='right'>" + name + "</td>";
+                    formoutput += "<td class='outputdata'>&#x2713;</td></tr>";
+                }
+                break;
+
+            case "radio":
+                if (el.checked) {
+                    formoutput += "<tr><td align='right'>" + name + "</td>";
+                    formoutput += "<td class='outputdata'>" + value + "</td></tr>";
+                }
+                break;
+
+            case "range":
+                // Only show the slider if the user moved it off the default (0)
+                if (value !== "0") {
+                    formoutput += "<tr><td align='right'>" + name + "</td>";
+                    formoutput += "<td class='outputdata'>" + value + "</td></tr>";
+                }
+                break;
+
+            case "button":
+            case "submit":
+            case "reset":
+                // skip
+                break;
+
+            default:
+                if (value !== "") {
+                    formoutput += "<tr><td align='right'>" + name + "</td>";
+                    formoutput += "<td class='outputdata'>" + value + "</td></tr>";
+                }
+        }
+    }
+
+    formoutput += "</table>";
+    document.getElementById("showInput").innerHTML = formoutput;
+}
+function removeReview(){
+  document.getElementById("showInput").innerHTML = "";
+}

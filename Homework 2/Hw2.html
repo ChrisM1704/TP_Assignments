@@ -14,7 +14,7 @@ Decription: This will show a medical page.
 -->
 <html lang="en">
   <head>
-    <link rel = "stylesheet" href="Homework1.html">
+    <link rel = "stylesheet" href="Hw2.html">
      <link rel = "stylesheet" href="Hw2.css">
      <link rel = "stylesheet" href="logo.png">
      <script src = "Hw2.js"></script>
@@ -38,7 +38,7 @@ Decription: This will show a medical page.
       <script> document.getElementById("date").innerHTML=new Date().toLocaleDateString();</script>
 
 
-  <form action ="Thank You.html">
+  <form name="signup" id="signup" action ="Hw2ThankYou.html">
   <table>
     <tr>
         <td>
@@ -112,7 +112,7 @@ Decription: This will show a medical page.
        
         
 <!--state list -->
-  <select id = 'state'required>
+  <select id = 'state' name="State">
       <option value ="">Please Select a State:</option> 
       <option value="AL">Alabama</option>
       <option value="AK">Alaska</option>
@@ -177,7 +177,7 @@ Decription: This will show a medical page.
         <label for="email"> Email Address:</label>
         </td>
         <td>
-      <Input type="text"  id= "email" name= "email" required placeholder="Email Address" maxlength="50" title="Please enter your email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,20}$ " onblur="validateEmmail()" required>
+      <Input type="text"  id= "email" name= "email" required placeholder="Email Address" maxlength="50" title="Please enter your email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,20}$ " onblur="validateEmail()" required>
         <span class="error" id="email-error"></span>
         </td>
   </tr>
@@ -245,7 +245,7 @@ Decription: This will show a medical page.
         <label for ="Otherdisease">If other, please enter your relevent diseases:</label>
         </td>
         <td>
-      <input type ="text" maxlength="20" id="Otherdisease" name = "Otherdisease" >
+      <input type ="text" maxlength="20" id="Otherdisease" name = "Other disease" >
         </td>
   </tr>
   <tr>
@@ -253,7 +253,8 @@ Decription: This will show a medical page.
         <label for="Ill"> Current pain level:</label>
         </td>
         <td>
-      1<input type="range" id="Ill"name="Ill" min="0" max="10"> 10
+      <input type="range" id="PainLevel"name="Pain level" min="0" max="10" oninput="updateSlider()"> 
+      <span id="painValue">0</span>
         </td>
   </tr>
   <tr>
@@ -273,7 +274,7 @@ Decription: This will show a medical page.
         <label for="Password1">Password: </label>
         </td>
         <td>
-      <input type= "password" id="Password1" name="Password1" maxlength="30" title="Password must contain at least 10 characters, one uppercase letter, one number, one lowercase letter, and one special character" onblur="validatePassword1()" oninput="validatePassword1()" onfocus="validatePassword1()" required>
+      <input type= "password" id="Password1" name="Password1" minlength="8" maxlength="30" title="Password must contain at least 10 characters, one uppercase letter, one number, one lowercase letter, and one special character" onblur="validatePassword1()" oninput="validatePassword1()" onfocus="validatePassword1()" required>
       <span class="error" id="Password1-error"></span>
         </td>
   <tr>
@@ -282,7 +283,7 @@ Decription: This will show a medical page.
         <label for="ConfirmationPassword"> Confirm Password: </label>
         </td>
         <td>
-      <input type="Password" id="ConfirmationPassword" name="ConfirmationPassword" maxlength="30" title="Please re-emter your password" onblur="confirmConfirmationPassword()" oninput="confirmConfirmationPassword()" onfocus="confirmConfirmationPassword()" required>
+      <input type="Password" id="ConfirmationPassword" name="ConfirmationPassword" minlength="8" maxlength="30" title="Please re-emter your password" onblur="confirmConfirmationPassword()" oninput="confirmConfirmationPassword()" onfocus="confirmConfirmationPassword()" required>
       <span class="error" id="ConfirmationPassword-error"></span>
         </td>
   </tr>
@@ -304,8 +305,26 @@ Decription: This will show a medical page.
   
         </td>
   </tr>
-    
+  
+        
+ 
+  
+        
   </table>
+  <div class="pass-message">
+ <span id="msg1"></span> <br/>
+ <span id="msg2"></span> <br/>
+ <span id="msg3"></span> <br/>
+  <span id="msg4"></span> <br/>
+  <span id="msg5"></span> <br/>
+  <span id="msg6"></span> <br/>
+  <span id="msg7"></span> <br/>
+  <span id="ConfirmationPassword-error"></span> <br/>
+
+  </div>
+  <center>
+    <p id="showInput"></p>
+  </center>
 </form>
      
 </body>
