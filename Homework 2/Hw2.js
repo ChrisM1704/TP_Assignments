@@ -185,6 +185,19 @@ function validateDOB(){
   }
  }
 
+//Js code for Phone Number
+function validatePhoneNumber(){
+  const phoneInput = document.getElementById("PhoneNumber");
+  const phone = phoneInput.value.replace(/\D/g,"");
+  if(phone.length != 10){
+    document.getElementById("PhoneNumber-error").innerHTML = "Phone Number cannot be left blank";
+    return false;
+  }
+  const formattedPhone = phone.slice(0,3) +"-"+ phone.slice(3,6) +"-"+ phone.slice(6,10)
+  phoneInput.value = formattedPhone;
+  document.getElementById("PhoneNumber-error").innerHTML = "";
+  return true;
+}
 //Js code for slider
 function updateSlider(){
   const value = document.getElementById("PainLevel").value;
